@@ -1,6 +1,6 @@
 To run the Mern application in localhost/development mode do this:
 
-`cd client`
+`cd client`<br />
 `npm run start`
 
 Both client and server should start. If client is up before server, just refresh page.
