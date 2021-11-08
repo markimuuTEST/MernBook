@@ -1,16 +1,18 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import dotenv from 'dotenv';
 import bookRoutes from './routes/books.js';
 
 const app = express();
+dotenv.config();
 
 app.use(express.json({ limit: '30mb', extended: true}));
 app.use(express.urlencoded({ limit: '30mb', extended: true}));
 app.use(cors());
 app.use('/books', bookRoutes);
 
-const CONNECTION_URL = "mongodb+srv://Books:nGnTP4MAPjmO25CU@bookcluster.r6agk.mongodb.net/BookCluster?retryWrites=true&w=majority";
+const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 3001;
 
 mongoose.connect(CONNECTION_URL)
